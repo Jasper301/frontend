@@ -80,23 +80,28 @@ function bmiLaskuri(weight, height) {
   console.log(bmi);
   document.querySelector('.bmi-score').textContent = bmi;
 
+  // Poista kaikki luokat ennen kuin lisäät uudet
+  document.querySelector('.bmi0-19').classList.remove('lowBmi');
+  document.querySelector('.bmi25-30').classList.remove('highBmi');
+  document.querySelector('.bmi19-25').classList.remove('normalBmi');
+
   if (bmi < 19) {
     console.log('Alipaino');
+    document.querySelector('.analysis').textContent = lowBmi;
+    document.querySelector('.bmi0-19').classList.add('lowBmi');
   } else if (bmi > 25) {
     console.log('Ylipaino');
+    document.querySelector('.analysis').textContent = highBmi;
+    document.querySelector('.bmi25-30').classList.add('highBmi');
   } else {
     console.log('Normaalipaino');
-
     document.querySelector('.analysis').textContent = normalBmi;
-    // document.querySelector('.bmi19-25').style.color = 'orange';
     document.querySelector('.bmi19-25').classList.add('normalBmi');
   }
 }
 
 function resettiFunktio() {
-  // täällä kannattaa resetoida tyylit
 }
-function munFunktio() {
-  console.log('Tämä on funktion sisällä!');
-}
-munFunktio();
+
+resettiFunktio();
+bmiLaskuri(weight, height, normalBmi,lowBmi, hig);
